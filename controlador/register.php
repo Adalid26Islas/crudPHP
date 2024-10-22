@@ -12,7 +12,7 @@ if (!empty($_POST["btnregistrar"])) {
         $sql = $conexion->query("INSERT INTO personas (nombre, apellidos, dni, fecha_nacimiento, email) 
         VALUES ('$nombre', '$apellidos', '$dni', '$fecha', '$correo')");
         if ($sql==1) {
-            echo '<div class="alert alert-success">Persona registrada correctamente</div>';
+            echo '<div class="alert alert-success text-center">Persona registrada correctamente</div>';
         }else{
             echo '<div class="alert alert-danger">Error al registrar a la persona</div>';
         }

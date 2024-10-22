@@ -8,6 +8,16 @@
     <title>CRUD</title>
 </head>
 <body>
+    <script>
+        function eliminar (){
+            var respuesta = confirm("Estas seguro de que deseas eliminar a esta persona");
+            return respuesta;
+        }
+    </script>
+    <?php
+        include "modelo/db.php";
+        include "controlador/delete_person.php";
+    ?>
     <div class="container-fluid row">
         <form class="col-4 p-2" method="POST">
             <h3 class="text-center alert alert-secondary p-2 mt-3">Registro de personas</h3> 
@@ -63,8 +73,8 @@
                                 <td><?= $datos->fecha_nacimiento ?></td>
                                 <td><?= $datos->email ?></td>
                                 <td>
-                                    <a href="modificar.php" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                                    <a href="" class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a>
+                                    <a href="update.php?id=<?= $datos->ID ?>" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a onclick="return eliminar()" href="index.php?ID=<?= $datos->ID ?>" class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                         <?php }
